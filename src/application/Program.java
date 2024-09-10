@@ -6,6 +6,7 @@ import model.entities.Department;
 import model.entities.Seller;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
@@ -14,7 +15,7 @@ public class Program {
         /*Department obj = new Department(1, "Books");
 
         Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.00, obj);*/
-
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println("==== Test 1: seller findById ====");
@@ -46,6 +47,14 @@ public class Program {
         seller.setName("Martha Waine");
         sellerDao.update(seller);
         System.out.println("Update completed");
+
+        System.out.println("\n==== Test 6: seller Delete ====");
+        System.out.println("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete Completed");
+
+        sc.close();
 
     }
 
